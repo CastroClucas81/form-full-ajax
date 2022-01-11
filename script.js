@@ -1,10 +1,45 @@
 jQuery(function ($) {
+  $('#form').validate({
+    rules: {
+      title: {
+        required: true,
+        minlength: 3
+      },
+      author: {
+        required: true
+      }
+    },
+    messages: {
+      title: {
+        required: 'Por favor, informe seu nome',
+        minlength: 'O nome deve ter pelo menos 3 caracteres'
+      },
+      author: {
+        required: 'É necessário informar um email'
+      },
+    }
+  })
+
+  var dots = 0
+  function type () {
+    if (dots < 3) {
+      $('#dots').append('.')
+      dots++
+    } else {
+      $('#dots').html('')
+      dots = 0
+    }
+  }
+
   function loadData () {
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3000/posts',
       beforeSend: function () {
-        $('.list').append("<p class='loading'> Carregando... </p>")
+        $('.list').append(
+          "<p class='loading'>Carregando<span id='dots'></span></p>"
+        )
+        setInterval(type, 200)
       },
       success: function (data) {
         $('.loading').remove()
@@ -14,7 +49,8 @@ jQuery(function ($) {
       },
       error: function (data) {
         console.log('An error occurred.')
-        $('.list').append(`<p>Não há dados</p>`)
+        $('.loading').remove()
+        $('.list').append(`<p class="undefined">Não há dados</p>`)
       }
     })
   }

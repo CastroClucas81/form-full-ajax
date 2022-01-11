@@ -10,7 +10,7 @@
   <style>
     body {
       height: 100vh;
-      background-color: #F4F4F4;
+      background-color: #f4f4f4;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -67,6 +67,9 @@
       border-radius: 5px;
       padding: 10px 10px 0px 10px;
       border-radius: 5px;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
     }
 
     .dataList {
@@ -83,7 +86,7 @@
     }
 
     .dataList h3 {
-        font-weight: bold;
+      font-weight: bold;
     }
 
     .dataList p,
@@ -100,6 +103,21 @@
       background-color: rgb(240, 0, 0);
       padding: 5px 30px;
       border-radius: 5px;
+    }
+
+    .undefined,
+    .loading {
+      padding-bottom: 10px;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .loading {
+      color: purple;
+    }
+
+    .undefined {
+      color: rgb(240, 0, 0);
     }
   </style>
 
@@ -130,6 +148,12 @@
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
+      integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script src="./script.js"></script>
   </body>
